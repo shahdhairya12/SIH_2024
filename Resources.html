@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Water Bodies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    /* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+}
+
+/* Resources Section Styling */
+.resources-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#search-bar {
+    border-radius: 5px 0 0 5px;
+}
+
+#search-btn {
+    border-radius: 0 5px 5px 0;
+}
+
+footer {
+    background-color: #007bff;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Animation Section */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Applying Animations */
+.animate-section {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.animate-slide {
+    animation: slideIn 1s ease-in-out;
+}
+
+.animate-zoom {
+    animation: zoomIn 1s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resources-section {
+        padding: 20px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Header (Consistent with other pages) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Water Bodies Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About Us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Survey.html">Survey</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="monitoring.html">Monitoring</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Feedback.html">Feedback</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Resources Section -->
+    <section class="resources-section py-5">
+        <div class="container animate-section">
+            <h2 class="text-center mb-4 animate-fade">Water Resources</h2>
+
+            <!-- Search Bar -->
+            <div class="row mb-4 animate-slide">
+                <div class="col-lg-6 mx-auto">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="search-bar" placeholder="Search for resources...">
+                        <button class="btn btn-primary" id="search-btn">Search</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Links and Downloads -->
+            <div class="row">
+                <!-- Downloadable Documents (PDFs, Reports) -->
+                <div class="col-md-6 animate-slide">
+                    <h4>Downloadable Resources</h4>
+                    <ul class="list-group animate-zoom">
+                        <li class="list-group-item">
+                            <a href="resources/water_report.pdf" download>Annual Water Report 2023 (PDF)</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="resources/lake_study.pdf" download>Lake Study Report (PDF)</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="resources/river_flow.pdf" download>River Flow Analysis (PDF)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- External Links to Government Sites or Research Articles -->
+                <div class="col-md-6 animate-slide">
+                    <h4>External Resources</h4>
+                    <ul class="list-group animate-zoom">
+                        <li class="list-group-item">
+                            <a href="https://www.who.int/water_sanitation_health" target="_blank">World Health Organization: Water, Sanitation, and Health</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="https://www.unwater.org/" target="_blank">United Nations: Water</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="https://www.epa.gov/waterdata" target="_blank">EPA: Water Data and Tools</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Consistent with other pages) -->
+    <footer class="bg-primary text-white text-center py-3">
+        <p>&copy; 2024 Water Bodies Project. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+    // JavaScript for search functionality and animations
+
+// Get references to the search bar and resources
+const searchBar = document.getElementById('search-bar');
+const searchBtn = document.getElementById('search-btn');
+const downloadableItems = document.querySelectorAll('.list-group-item');
+
+// Event listener for search button click
+searchBtn.addEventListener('click', function() {
+    let query = searchBar.value.toLowerCase();
+    
+    downloadableItems.forEach(item => {
+        const resourceText = item.textContent.toLowerCase();
+        
+        if (resourceText.includes(query)) {
+            item.style.display = 'block'; // Show item if it matches the query
+        } else {
+            item.style.display = 'none'; // Hide item if it doesn't match the query
+        }
+    });
+});
+
+// Adding animation on page load
+window.addEventListener('load', function() {
+    const elements = document.querySelectorAll('.animate-slide, .animate-zoom');
+    
+    elements.forEach((el, index) => {
+        setTimeout(() => {
+            el.style.opacity = 1;
+            el.style.transform = 'translateY(0)'; // Bring the element into view
+        }, index * 200); // Delay each element slightly for a staggered effect
+    });
+});
+
+    </script>
+</body>
+
+</html>

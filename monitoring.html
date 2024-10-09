@@ -1,0 +1,207 @@
+<!-- all complte -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Dashboard - Water Monitoring Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the Water Monitoring Dashboard */
+
+body {
+    background-color: #57bde8;
+    font-family: 'Arial', sans-serif;
+}
+
+h2, h3 {
+    color: #007bff; /* Primary color for headings */
+}
+
+.navbar {
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+canvas {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.text-center {
+    margin-bottom: 20px;
+}
+
+#filter {
+    margin-bottom: 20px;
+}
+    </style>
+</head>
+<body>
+
+<!-- Header with Navigation Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Water Monitoring</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="About Us.html">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Survey.html">Survey</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="monitoring.html">Monitoring</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Resources.html">Resources</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Feedback.html">Feedback</a>
+            </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Dashboard Section -->
+<section class="container my-5">
+    <h2 class="text-center mb-4">Water Monitoring Dashboard</h2>
+
+    <!-- Filters Section -->
+    <!-- <div class="mb-4">
+        <label for="filter" class="form-label">Filter Data By Water Body Type</label>
+        <select class="form-select" id="filter">
+            <option value="all">All Water Bodies</option>
+            <option value="lake">Lake</option>
+            <option value="river">River</option>
+            <option value="ocean">Ocean</option>
+        </select>
+    </div> -->
+
+    <!-- Charts Section -->
+    <div class="row">
+        <div class="col-md-6">
+            <h5 class="text-center">Water Quality Over Time</h5>
+            <canvas id="waterQualityChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h5 class="text-center">Water Level Over Time</h5>
+            <canvas id="waterLevelChart"></canvas>
+        </div>
+    </div>
+    
+    <!-- Real-time Monitoring Section -->
+    <div class="mt-5">
+        <h3 class="text-center">Real-Time Monitoring</h3>
+        <p class="text-center">Live data feed (API integration goes here).</p>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="bg-light text-center py-4">
+  <div class="container">
+    <p>Contact us: <a href="mailto:1shahdhairya@gmail.com">1shahdhairya@gmail.com</a></p>
+    <p>&copy; 2024 Water Monitoring Project. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+<script>
+    // Get canvas elements for water quality and water level charts
+const waterQualityCtx = document.getElementById('waterQualityChart').getContext('2d');
+const waterLevelCtx = document.getElementById('waterLevelChart').getContext('2d');
+
+// Data for charts
+const waterQualityData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [{
+        label: 'Water Quality Index',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        data: [80, 85, 88, 86, 87, 90,80],
+    }]
+};
+
+const waterLevelData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [{
+        label: 'Water Level (m)',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        data: [1.2, 1.5, 1.3, 1.4, 1.6, 1.5],
+    }]
+};
+
+// Initialize water quality chart
+const waterQualityChart = new Chart(waterQualityCtx, {
+    type: 'line',
+    data: waterQualityData,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+        },
+    },
+});
+
+// Initialize water level chart
+const waterLevelChart = new Chart(waterLevelCtx, {
+    type: 'line',
+    data: waterLevelData,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+        },
+    },
+});
+
+// Handle data filtering by water body type
+document.getElementById('filter').addEventListener('change', function() {
+    const filterValue = this.value;
+    if (filterValue === 'lake') {
+        alert('Filter applied: Lake data displayed');
+    } else if (filterValue === 'river') {
+        alert('Filter applied: River data displayed');
+    } else if (filterValue === 'ocean') {
+        alert('Filter applied: Ocean data displayed');
+    } else {
+        alert('Filter applied: All water bodies displayed');
+    }
+});
+</script>
+</html>

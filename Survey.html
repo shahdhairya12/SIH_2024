@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey - Water Monitoring Project</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8; /* Light blue background color */
+            padding-top: 60px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #007bff;
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffca2c !important;
+        }
+
+        /* Survey Section Styling */
+        .survey-section {
+            background-color: #ffffff;
+            padding: 3rem 0;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .survey-section h2 {
+            color: #007bff;
+            animation: slideInDown 1s ease-in-out;
+        }
+
+        /* Form Styles */
+        .form-label {
+            font-weight: 600;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 0.25rem;
+            border-color: #ced4da;
+        }
+
+        .form-check-input {
+            margin-top: 0.3rem;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Button Hover Animation */
+        .btn-primary {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #007bff;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Water Monitoring</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="hm.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About Us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Survey.html">Survey</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="monitoring.html">Monitoring</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Feedback.html">Feedback</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Survey Form Section -->
+    <section class="survey-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Water Body Survey</h2>
+            <p class="text-center">Please fill out the survey below to help us monitor water bodies more effectively.</p>
+            <form id="survey-form" class="mx-auto" style="max-width: 600px;">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="waterBodyType" class="form-label">Type of Water Body</label>
+                    <select class="form-select" id="waterBodyType" required>
+                        <option selected disabled>Select type</option>
+                        <option value="lake">Lake</option>
+                        <option value="river">River</option>
+                        <option value="ocean">Ocean</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Is the water quality satisfactory?</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="waterQuality" id="qualityYes" value="yes" required>
+                        <label class="form-check-label" for="qualityYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="waterQuality" id="qualityNo" value="no">
+                        <label class="form-check-label" for="qualityNo">No</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="comments" class="form-label">Additional Comments</label>
+                    <textarea class="form-control" id="comments" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Survey</button>
+            </form>
+            <div id="form-result" class="mt-3 text-center"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Contact us: <a href="mailto:1shahdhairya@gmail.com">1shahdhairya@gmail.com</a></p>
+            <p>&copy; 2024 Water Monitoring Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // Survey Form Submission
+        document.getElementById("survey-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const waterBodyType = document.getElementById("waterBodyType").value;
+            const comments = document.getElementById("comments").value;
+            const waterQuality = document.querySelector('input[name="waterQuality"]:checked').value;
+
+            if (name && email && waterBodyType && waterQuality) {
+                document.getElementById("form-result").style.display = "block";
+                document.getElementById("form-result").innerHTML = `<strong>Thank you, ${name}!</strong> Your survey has been submitted successfully.`;
+                document.getElementById("survey-form").reset();
+            } else {
+                document.getElementById("form-result").style.display = "block";
+                document.getElementById("form-result").innerHTML = `<strong>Please fill out all fields.</strong>`;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
